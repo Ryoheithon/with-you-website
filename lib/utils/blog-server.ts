@@ -131,7 +131,6 @@ export function transformBlogPost(post: RawBlogPost): BlogPost {
   marked.use({
     gfm: true,
     breaks: true,
-    headerIds: true,
     pedantic: false
   });
   
