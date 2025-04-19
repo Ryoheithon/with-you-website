@@ -1,10 +1,8 @@
-import { remark } from 'remark';
-import html from 'remark-html';
+import { marked } from 'marked';
 import matter from 'gray-matter';
 
 export const markdownToHtml = async (markdown: string): Promise<string> => {
-  const result = await remark().use(html).process(markdown);
-  return result.toString();
+  return await marked.parse(markdown);
 };
 
 export const getExcerpt = (content: string, maxLength = 150): string => {
