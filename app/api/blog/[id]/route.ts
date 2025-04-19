@@ -6,10 +6,11 @@ import { getServerSession } from '@/lib/auth/session';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  context: any
 ) {
   try {
-    const id = params.id;
+    const id = context.params.id;
     
     // Create Supabase client
     const supabase = createServerClient();
@@ -40,7 +41,8 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  context: any
 ) {
   try {
     // Check authentication
@@ -52,7 +54,7 @@ export async function PUT(
       );
     }
     
-    const id = params.id;
+    const id = context.params.id;
     
     // Parse request body
     const body = await request.json();
@@ -140,7 +142,8 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  context: any
 ) {
   try {
     // Check authentication
@@ -152,7 +155,7 @@ export async function DELETE(
       );
     }
     
-    const id = params.id;
+    const id = context.params.id;
     
     // Create Supabase client
     const supabase = createServerClient();
