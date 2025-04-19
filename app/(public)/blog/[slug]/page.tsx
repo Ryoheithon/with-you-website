@@ -6,10 +6,10 @@ import { getBlogPostBySlug, getStaticBlogPosts } from '@/lib/utils/blog-server';
 import { formatDate } from '@/lib/utils/date';
 
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _parent: ResolvingMetadata
+  props: any,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
+  const { params } = props;
   const post = await getBlogPostBySlug(params.slug);
   
   if (!post) {
@@ -37,9 +37,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage(
-  { params }: { params: { slug: string } }
-) {
+export default async function BlogPostPage(props: any) {
+  const { params } = props;
   const post = await getBlogPostBySlug(params.slug);
   
   if (!post) {
