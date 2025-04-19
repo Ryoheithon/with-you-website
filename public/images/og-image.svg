@@ -1,0 +1,12 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="url(#paint0_linear)" />
+  <rect x="100" y="100" width="1000" height="430" rx="20" fill="white" fill-opacity="0.1" />
+  <text x="600" y="250" font-family="Arial" font-size="80" font-weight="bold" fill="white" text-anchor="middle">With-you</text>
+  <text x="600" y="350" font-family="Arial" font-size="36" fill="white" text-anchor="middle">一人ひとりの可能性を伸ばす教育サポート</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6c63ff" />
+      <stop offset="1" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+</svg>
