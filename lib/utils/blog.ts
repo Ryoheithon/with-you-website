@@ -35,7 +35,9 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     return [];
   }
   
-  return data.map(transformBlogPost);
+  // 非同期で変換する
+  const transformedPosts = await Promise.all(data.map(transformBlogPost));
+  return transformedPosts;
 }
 
 /**
@@ -58,7 +60,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     return null;
   }
   
-  return transformBlogPost(data);
+  return await transformBlogPost(data);
 }
 
 /**
@@ -78,7 +80,9 @@ export async function getAllBlogPostsForAdmin(): Promise<BlogPost[]> {
     return [];
   }
   
-  return data.map(transformBlogPost);
+  // 非同期で変換する
+  const transformedPosts = await Promise.all(data.map(transformBlogPost));
+  return transformedPosts;
 }
 
 /**
@@ -86,9 +90,9 @@ export async function getAllBlogPostsForAdmin(): Promise<BlogPost[]> {
  * @param post Raw blog post from database
  * @returns Transformed BlogPost
  */
-export function transformBlogPost(post: RawBlogPost): BlogPost {
+export async function transformBlogPost(post: RawBlogPost): Promise<BlogPost> {
   // Convert markdown content to HTML if it exists
-  const content_html = post.content ? marked(post.content) : '';
+  const content_html = post.content ? await marked(post.content) : '';
   
   return {
     id: post.id,
