@@ -5,8 +5,12 @@ import { notFound } from 'next/navigation';
 import { getBlogPostBySlug, getStaticBlogPosts } from '@/lib/utils/blog-server';
 import { formatDate } from '@/lib/utils/date';
 
+type PageProps = {
+  params: { slug: string }
+};
+
 export async function generateMetadata(
-  { params }: { params: { slug: string } },
+  { params }: PageProps,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _parent: ResolvingMetadata
 ): Promise<Metadata> {
@@ -37,7 +41,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: PageProps) {
   const post = await getBlogPostBySlug(params.slug);
   
   if (!post) {
