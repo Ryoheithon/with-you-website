@@ -1,102 +1,26 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { BlogPost } from '@/types/blog';
+import { Suspense } from 'react';
 import Breadcrumb from '@/components/ui/breadcrumb';
-import BlogList from '@/components/blog/blog-list';
+import SearchResults from './search-results';
 
 export default function SearchPage() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get('q') || '';
-  
-  const [results, setResults] = useState<BlogPost[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  
-  useEffect(() => {
-    async function fetchSearchResults() {
-      if (!query) {
-        setResults([]);
-        return;
-      }
-      
-      setIsLoading(true);
-      setError(null);
-      
-      try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-        const data = await response.json();
-        
-        if (response.ok) {
-          setResults(data.results || []);
-        } else {
-          setError(data.error || '検索中にエラーが発生しました');
-          setResults([]);
-        }
-      } catch (err) {
-        console.error('Search error:', err);
-        setError('検索中に予期せぬエラーが発生しました');
-        setResults([]);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    
-    fetchSearchResults();
-  }, [query]);
-  
-  // ページのタイトルを動的に更新
-  useEffect(() => {
-    document.title = query 
-      ? `「${query}」の検索結果 | With-you` 
-      : '検索 | With-you';
-  }, [query]);
-  
   return (
     <div className="min-h-screen">
       <Breadcrumb />
       
       <section className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-4">
-            {query ? `「${query}」の検索結果` : '検索'}
-          </h1>
-          {query && (
-            <p className="text-gray-600">
-              検索結果: {results.length}件見つかりました
-            </p>
-          )}
+          <h1 className="text-3xl font-bold text-gray-800 mb-4">検索</h1>
         </div>
         
         <div className="max-w-4xl mx-auto">
-          {isLoading ? (
+          <Suspense fallback={
             <div className="text-center py-12">
               <div className="animate-spin h-10 w-10 border-t-2 border-[#ED765E] border-r-2 rounded-full mx-auto mb-4"></div>
-              <p className="text-gray-600">検索中...</p>
+              <p className="text-gray-600">読み込み中...</p>
             </div>
-          ) : error ? (
-            <div className="text-center py-12 bg-red-50 rounded-lg">
-              <p className="text-red-600">{error}</p>
-            </div>
-          ) : results.length > 0 ? (
-            <BlogList posts={results} />
-          ) : query ? (
-            <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <h3 className="text-xl font-medium text-gray-700 mb-2">
-                検索結果がありません
-              </h3>
-              <p className="text-gray-600">
-                別のキーワードを試すか、より一般的な用語で検索してください。
-              </p>
-            </div>
-          ) : (
-            <div className="text-center py-12 bg-gray-50 rounded-lg">
-              <p className="text-gray-600">
-                検索キーワードを入力してください
-              </p>
-            </div>
-          )}
+          }>
+            <SearchResults />
+          </Suspense>
         </div>
       </section>
     </div>
