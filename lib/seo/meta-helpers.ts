@@ -152,7 +152,7 @@ export function generateBlogMetadata({
     ...baseMetadata,
     // JSON-LDを設定
     other: {
-      ...baseMetadata.other,
+      ...((baseMetadata.other || {}) as Record<string, string>),
       'script:ld+json': JSON.stringify(articleSchema),
     },
   };
