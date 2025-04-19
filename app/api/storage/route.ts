@@ -27,23 +27,6 @@ export async function GET() {
     const blogImagesBucket = buckets?.find(bucket => bucket.name === 'blog-images');
     
     if (!blogImagesBucket) {
-      // blog-imagesバケットの作成
-      const { data: newBucket, error: createError } = await supabase
-        .storage
-        .createBucket('blog-images', {
-          public: true,
-          allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
-          fileSizeLimit: 5 * 1024 * 1024, // 5MB
-        });
-      
-      if (createError) {
-        console.error('Error creating blog-images bucket:', createError);
-        return NextResponse.json(
-          { message: 'ブログ画像用バケットの作成に失敗しました', error: createError.message },
-          { status: 500 }
-        );
-      }
-      
       // バケットを公開設定として作成
       const { data: newBucket, error: createError } = await supabase
         .storage
