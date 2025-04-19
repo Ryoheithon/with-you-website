@@ -21,6 +21,19 @@ export default function AdminLayout({
       const { data: { session } } = await supabase.auth.getSession();
       setIsAuthenticated(!!session);
       setIsLoading(false);
+      
+      // 認証済みの場合、ストレージバケットをセットアップ
+      if (session) {
+        try {
+          // ストレージ設定用APIを呼び出し
+          const response = await fetch('/api/storage');
+          if (!response.ok) {
+            console.error('Failed to initialize storage:', await response.text());
+          }
+        } catch (error) {
+          console.error('Error initializing storage:', error);
+        }
+      }
     };
 
     checkAuth();

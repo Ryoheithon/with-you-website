@@ -10,6 +10,7 @@ import { marked } from 'marked';
 import { gfmHeadingId } from 'marked-gfm-heading-id';
 import { createBlogPost, updateBlogPost } from '@/lib/utils/blog-admin-client';
 import { generateSlug } from '@/lib/utils/blog-client';
+import ImageUpload from '@/components/ui/image-upload';
 
 
 interface BlogFormProps {
@@ -26,6 +27,7 @@ const BlogForm = ({ post }: BlogFormProps) => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(blogSchema),
@@ -149,14 +151,13 @@ const BlogForm = ({ post }: BlogFormProps) => {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="featured_image" className="block text-sm font-medium text-gray-700">
-            アイキャッチ画像URL（任意）
-          </label>
-          <input
-            id="featured_image"
-            type="text"
-            {...register('featured_image')}
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#6c63ff] focus:ring-[#6c63ff] sm:text-sm text-black"
+          <ImageUpload
+            value={watch('featured_image') || ''}
+            onChange={(url) => {
+              // react-hook-formのsetValueを使用して値を更新
+              setValue('featured_image', url, { shouldValidate: true });
+            }}
+            label="アイキャッチ画像"
           />
           {errors.featured_image && (
             <p className="mt-1 text-sm text-red-600">{errors.featured_image?.message?.toString()}</p>
