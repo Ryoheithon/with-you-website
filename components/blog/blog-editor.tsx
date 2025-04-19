@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { blogSchema, BlogFormValues } from '@/lib/validators/blog';
-import { Blog } from '@/types/blog';
+import { BlogPost } from '@/types/blog';
 
 interface BlogEditorProps {
-  blog?: Blog;
+  blog?: BlogPost;
   onSubmit: (data: BlogFormValues) => Promise<void>;
   isSubmitting: boolean;
 }
