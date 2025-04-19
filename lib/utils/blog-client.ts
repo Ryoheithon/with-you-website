@@ -4,6 +4,21 @@ import { marked } from 'marked';
 import { gfmHeadingId } from 'marked-gfm-heading-id';
 
 /**
+ * Type definition for raw blog post data from Supabase
+ */
+interface RawBlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  content: string | null;
+  excerpt: string | null;
+  featured_image: string | null;
+  published: boolean;
+  created_at: string;
+  updated_at: string | null;
+}
+
+/**
  * Fetches all published blog posts from Supabase (client-side version)
  * @returns Array of blog posts
  */
@@ -52,7 +67,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
  * @param post Raw blog post from database
  * @returns Transformed BlogPost
  */
-export function transformBlogPost(post: Record<string, any>): BlogPost {
+export function transformBlogPost(post: RawBlogPost): BlogPost {
   // GitHub Flavored Markdown（GFM）を有効化
   marked.use(gfmHeadingId());
   marked.use({

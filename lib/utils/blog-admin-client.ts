@@ -66,7 +66,7 @@ export async function createBlogPost(
     }
     
     return transformBlogPost(data);
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Exception creating blog post:', error);
     return null;
   }

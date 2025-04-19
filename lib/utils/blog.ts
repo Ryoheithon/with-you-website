@@ -3,6 +3,21 @@ import { BlogPost } from '@/types/blog';
 import { marked } from 'marked';
 
 /**
+ * Type definition for raw blog post data from Supabase
+ */
+interface RawBlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  content: string | null;
+  excerpt: string | null;
+  featured_image: string | null;
+  published: boolean;
+  created_at: string;
+  updated_at: string | null;
+}
+
+/**
  * Fetches all published blog posts from Supabase
  * @returns Array of blog posts
  */
@@ -71,7 +86,7 @@ export async function getAllBlogPostsForAdmin(): Promise<BlogPost[]> {
  * @param post Raw blog post from database
  * @returns Transformed BlogPost
  */
-export function transformBlogPost(post: Record<string, any>): BlogPost {
+export function transformBlogPost(post: RawBlogPost): BlogPost {
   // Convert markdown content to HTML if it exists
   const content_html = post.content ? marked(post.content) : '';
   

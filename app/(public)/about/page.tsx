@@ -26,7 +26,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Section variant="default" className="py-12">
+      <section className="py-12">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white rounded-lg shadow-lg p-8 mb-12 animate-fade-in">
             <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
@@ -113,7 +113,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* CTAセクション */}
       <section className="py-20 bg-gradient-to-br from-[#ED765E] to-[#FEA858] text-white">
