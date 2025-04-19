@@ -7,7 +7,7 @@ import { formatDate } from '@/lib/utils/date';
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   const post = await getBlogPostBySlug(params.slug);
   
