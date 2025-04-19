@@ -103,8 +103,8 @@ export async function transformBlogPost(post: RawBlogPost): Promise<BlogPost> {
     excerpt: post.excerpt || '',
     featured_image: post.featured_image || '',
     published: post.published,
-    created_at: post.created_at,
-    updated_at: post.updated_at,
+    created_at: new Date(post.created_at),
+    updated_at: post.updated_at ? new Date(post.updated_at) : null,
   };
 }
 
