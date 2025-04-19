@@ -85,9 +85,12 @@ const BlogForm = ({ post }: BlogFormProps) => {
     try {
       const slug = generateSlug(data.title);
       
+      // undefinedの値を空文字列に変換
       const blogData = {
         ...data,
         slug,
+        excerpt: data.excerpt || '',
+        featured_image: data.featured_image || ''
       };
       
       if (post) {
