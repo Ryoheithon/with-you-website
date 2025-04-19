@@ -49,7 +49,7 @@ const BlogForm = ({ post }: BlogFormProps) => {
   const content = watch('content');
   const [parsedContent, setParsedContent] = useState('');
 
-  const parseMarkdown = () => {
+  const parseMarkdown = async () => {
     if (content) {
       try {
         // GitHub Flavored Markdown（GFM）を有効化
@@ -60,7 +60,7 @@ const BlogForm = ({ post }: BlogFormProps) => {
           pedantic: false
         });
         
-        const html = marked.parse(content);
+        const html = await marked.parse(content);
         setParsedContent(html);
       } catch (error) {
         console.error('Error parsing markdown:', error);
@@ -71,9 +71,9 @@ const BlogForm = ({ post }: BlogFormProps) => {
     }
   };
 
-  const togglePreview = (preview: boolean) => {
+  const togglePreview = async (preview: boolean) => {
     if (preview) {
-      parseMarkdown();
+      await parseMarkdown();
     }
     setPreviewMode(preview);
   };
@@ -179,7 +179,7 @@ const BlogForm = ({ post }: BlogFormProps) => {
               </button>
               <button
                 type="button"
-                onClick={() => togglePreview(true)}
+                onClick={async () => await togglePreview(true)}
                 className={`px-3 py-1 text-xs font-medium rounded-md ${
                   previewMode
                     ? 'bg-[#6c63ff] text-white'
