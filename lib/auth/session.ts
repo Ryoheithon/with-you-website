@@ -1,4 +1,3 @@
-import { cookies } from 'next/headers';
 import { createServerClient } from '@/lib/supabase/server';
 
 /**
@@ -6,7 +5,6 @@ import { createServerClient } from '@/lib/supabase/server';
  * @returns Session object or null if not authenticated
  */
 export async function getServerSession() {
-  const cookieStore = cookies();
   const supabase = createServerClient();
   
   const { data: { session } } = await supabase.auth.getSession();

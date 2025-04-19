@@ -37,7 +37,7 @@ export default function Breadcrumb() {
     
     // 各パスセグメントに対応する項目を追加
     let currentPath = '';
-    pathArray.forEach((path, i) => {
+    pathArray.forEach((path) => {
       currentPath += `/${path}`;
       
       // パスから表示名を決定

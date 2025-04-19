@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase/server';
-import { BlogPost } from '@/types/blog';
+
 import { transformBlogPost } from '@/lib/utils/blog-server';
 
 export async function GET(request: NextRequest) {

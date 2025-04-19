@@ -110,7 +110,7 @@ export async function getAllBlogPostsForAdmin(): Promise<BlogPost[]> {
  * @param post Raw blog post from database
  * @returns Transformed BlogPost
  */
-export function transformBlogPost(post: any): BlogPost {
+export function transformBlogPost(post: Record<string, any>): BlogPost {
   // GitHub Flavored Markdown（GFM）を有効化
   marked.use(gfmHeadingId());
   marked.use({

@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
-import { Section } from '@/components/ui/section';
+
 import { generateMetadata } from '@/lib/seo/meta-helpers';
 
 // メタデータ拡張
@@ -204,7 +203,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all relative">
-              <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+              <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
               <p className="text-gray-700 mb-6 pt-4">
                 With-youに通い始めてから、子どもの学習に対する姿勢が変わりました。以前は勉強が嫌いでしたが、今では自分から進んで勉強するようになりました。
               </p>
@@ -220,7 +219,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all relative">
-              <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+              <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
               <p className="text-gray-700 mb-6 pt-4">
                 算数が苦手だった娘が、With-youの個別指導で基礎からしっかり学び直すことができました。テストの点数も上がり、「算数が楽しい」と言うようになりました。
               </p>
@@ -236,7 +235,7 @@ export default function HomePage() {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all relative">
-              <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+              <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
               <p className="text-gray-700 mb-6 pt-4">
                 先生方の熱心な指導のおかげで、苦手だった英語が得意科目になりました。With-youは単に勉強を教えるだけでなく、学ぶ意欲も高めてくれます。
               </p>

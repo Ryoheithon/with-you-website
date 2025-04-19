@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import BlogList from '@/components/blog/blog-list';
 import { getBlogPosts } from '@/lib/utils/blog-server';
-import { Section } from '@/components/ui/section';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'ブログ | With-you',

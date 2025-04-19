@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createClientClient } from '@/lib/supabase/client';
 import { format } from 'date-fns';
 import { ja } from 'date-fns/locale';
@@ -22,7 +22,7 @@ export default function ContactPage() {
   
   const supabase = createClientClient();
   
-  const fetchContacts = async () => {
+  const fetchContacts = useCallback(async () => {
     setIsLoading(true);
     setError(null);
     
@@ -43,7 +43,7 @@ export default function ContactPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [supabase]);
   
   const markAsRead = async (id: string, currentStatus: boolean) => {
     try {
@@ -68,7 +68,7 @@ export default function ContactPage() {
   
   useEffect(() => {
     fetchContacts();
-  }, []);
+  }, [fetchContacts]);
   
   if (isLoading) {
     return (

@@ -1,4 +1,4 @@
-import { Metadata, ResolvedMetadata } from 'next';
+import { Metadata } from 'next';
 
 // デフォルト設定
 const DEFAULT_TITLE = 'With-you | 子どもの成長をサポートする学習プラットフォーム';

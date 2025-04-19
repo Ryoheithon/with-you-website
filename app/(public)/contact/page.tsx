@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import ContactFormWrapper from '@/components/contact/contact-form-wrapper';
-import { Section } from '@/components/ui/section';
-import Link from 'next/link';
-import Image from 'next/image';
+
 
 export const metadata: Metadata = {
   title: 'お問い合わせ | With-you',

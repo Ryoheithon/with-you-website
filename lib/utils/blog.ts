@@ -71,7 +71,7 @@ export async function getAllBlogPostsForAdmin(): Promise<BlogPost[]> {
  * @param post Raw blog post from database
  * @returns Transformed BlogPost
  */
-export function transformBlogPost(post: any): BlogPost {
+export function transformBlogPost(post: Record<string, any>): BlogPost {
   // Convert markdown content to HTML if it exists
   const content_html = post.content ? marked(post.content) : '';
   

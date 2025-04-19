@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { blogSchema } from '@/lib/validators/blog';
+import { blogSchema, BlogFormValues } from '@/lib/validators/blog';
 import { BlogPost } from '@/types/blog';
 import { marked } from 'marked';
 import { gfmHeadingId } from 'marked-gfm-heading-id';
 import { createBlogPost, updateBlogPost } from '@/lib/utils/blog-admin-client';
 import { generateSlug } from '@/lib/utils/blog-client';
-import { toast } from 'sonner';
+
 
 interface BlogFormProps {
   post?: BlogPost;
@@ -80,7 +80,7 @@ const BlogForm = ({ post }: BlogFormProps) => {
     setPreviewMode(preview);
   };
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: BlogFormValues) => {
     setIsSubmitting(true);
     setError(null);
 

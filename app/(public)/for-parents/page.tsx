@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Section } from '@/components/ui/section';
+
 import { Metadata } from 'next';
 import { generateMetadata } from '@/lib/seo/meta-helpers';
 

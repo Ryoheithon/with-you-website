@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { Section } from '@/components/ui/section';
+
 import { Metadata } from 'next';
 import { generateMetadata } from '@/lib/seo/meta-helpers';
 
@@ -41,7 +40,7 @@ export default function TestimonialsPage() {
             <div className="space-y-8">
               {/* 木更津市Mさんの声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   鳥飼先生！ありがとうございました。娘との仲もおちつきました。楽しく話ができるようになりました！先生が、娘に私の気持ちをうまく話してくれたおかげです。「うざい」「きえろ」「死ね」「出て行け」などひどい言葉を言い合っていたので、どうしていいかまったくわからなかったです。先生が心をつないでくれたこと感謝です。
                 </p>
@@ -58,7 +57,7 @@ export default function TestimonialsPage() {
 
               {/* 千葉市Mさんの声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   鳥飼先生がアドバイスをしてくれたように担任の先生に相談したら、担任の先生も気にしてくれていました。学校に話に行くのはどきどきしましたが、鳥飼先生に話し方も教えてもらい安心して話せました。背中を押してもらってよかったです。担任の先生も本当にいい先生だとわかりました。子どもも友達と楽しそうにすごせるようになりました。ありがとうございました。
                 </p>
@@ -75,7 +74,7 @@ export default function TestimonialsPage() {
 
               {/* 袖ヶ浦市Hさんの声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   鳥飼先生 ありがとうございました。先生にお話を聞いていただき、気持ちが大きくなれ、元気になれました。自分の息子を信じようと思えました。大学生になっても心配しすぎていることは、自分でもわかっているようでもなかなか認められなかったのです。でも、先生が、私を否定せず、その気持ちわかるよと言ってもらってほっとできました。たくさん泣いてしまいましたが、スッキリしました。そして、息子が私のことをわかってくれていることも先生に気づかせてもらいました。また涙がでてきます。先生がよく言うように、でーんとしていきます。笑います。またヘコむと思いますので、よろしくお願いします。
                 </p>
@@ -92,7 +91,7 @@ export default function TestimonialsPage() {
 
               {/* 千葉市Aさんの声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   息子は自閉症とＡＤＨＤの発達障害です。３才から療育をしてきました。小学一年生の時、息子は何をするにも自信がなくチャレンジすることから逃げてしまう子になっていました。学校では、授業中先生の言っていることが理解できないから、聞かない・やらないが当たり前になっていました。自宅では、暴言暴力、何でも否定・・・・宿題は私が教えながら、プリント１枚やらせるのに３時間かかります。毎日付きあえません。そんな時、縁があって鳥飼先生に出会いました。鳥飼先生と私の面談。今までの事、不安に思っている事、いろんな話を聞いて頂きました。鳥飼先生は、ハードルを下げてあげればいいと言いました。ハードルを下げる ＝ 課題を下げる のではなく、ハードルを下げる ＝ 何度も経験をし、自然にできるようにするということでした。
                 </p>
@@ -124,7 +123,7 @@ export default function TestimonialsPage() {
             <div className="space-y-8">
               {/* 木更津市K先生の声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   こんにちは^o^昨日はありがとうございました。先生に教えてもらったゲームを授業の始まる前にやってみました。Mくんは、始めはやる気になっていなかったのですが教えてもらったような視線の向け方をして、みんなに楽しい雰囲気をつくりました。すると不思議なことにすぐに食いついてきました。そして、さらっと声かけをして入れることができました。みんなで楽しくできました(^-^)vその後は授業にも参加をしてくれました。すごく嬉しかったです。明日も頑張ってみます。なんか私もできそうです。Mくんの居場所づくりも頑張ります。また、報告します。
                 </p>
@@ -141,7 +140,7 @@ export default function TestimonialsPage() {
 
               {/* 木更津市T先生の声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   先日はお世話になりました。あの時はイライラして熱くなっていて、時間をたくさんとって話を聞いてもらいありがとうございました。あのお母さんがそんなに苦しい気持ちでいたかもしれないなどと考えていませんでした。文句ばかり言ってくるので、ひどいクレーマーのようにしか思っていませんでした。鳥飼先生の話を聞いていたら、お母さんの立場になることができました。反省しました。火曜日にお母さんと話をしました。「お母さんはこんな気持ちなの？分かっていなくてごめんね。」と話すとお母さんも泣いて苦しい気持ちを話してくれました。私も泣いてしまいました。やはり、先生の予想通り、つっぱっていなくては自分がつぶれちゃうみたいでした。一緒に頑張ろうと話しました。先生がよく言う「お家の人と一緒に喜び合う」ってこんなことなのかなと少し分かった気がしました。今度は、このお母さんを元気にさせる方法を教えてください。お忙しいと思いますが、空いている日を教えてください。よろしくお願いします。
                 </p>
@@ -158,7 +157,7 @@ export default function TestimonialsPage() {
 
               {/* 千葉市I先生の声 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   やっぱり教師って仕事、いいですね。発達障害だから…できない?とかよりも、その子のできることを増やしてあげたい?と思うことが大事ですね。先生に出会わなければ、できないことに目がいってしまっていました。やっぱり、愛ですね。
                 </p>
@@ -187,7 +186,7 @@ export default function TestimonialsPage() {
             <div className="space-y-6">
               {/* 参加者の声1 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   鳥飼先生の貴重な体験談を含め、とても勉強になるご講話でした。私自身、教員生活を重ね学級経営や子ども達への指導に自信があったのですが、先生の大胆かつきめ細やかな指導法を聞き、自分の未熟さを痛感しました。子ども達が幸せになるためにはどのようにしていけばよいのか深く考えさせられました。また、１０項目の評価についても具体的な手だてを教えてくださいました。子ども達を幸せのため、今回学んだことを早速生かしたいと思いました。本当にありがとうございました。
                 </p>
@@ -195,7 +194,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声2 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   本日は、御講話いただきありがとうございました。「自分はなぜ教員をめざしたのか。」ということを思い返していました。「子どもの将来に役立つように心も体も頭も育てたい」と思って志望していたんだなぁと思い出していました。先生のお話を聞いて、その思いをもって子どもたちにむきあえているのかということも考えました。私なりに愛をもって接していると思っていたこともまだまだ中途半端だなぁとおもうことばかりでした。愛をもって育てられるよう夢をもって成長していきたいです。
                 </p>
@@ -203,7 +202,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声3 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   教師の仕事が、こんなにもすばらしいものかと実感しました。教師の意識ひとつで子どもの人生も左右してしまうことも多いことも分かり、責任の重さも感じました。しかし、子どもたちの幸せを考えて向かえば、鳥飼先生のようにたくさんの感動を子どもたちや保護者の方々と一緒にたくさん味わえると思いました。子どもたちのためにたくさん頑張ろうと思いました。燃えてきました。
                 </p>
@@ -211,7 +210,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声4 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   講師として担任はしていません。でも教師のすばらしさを感じ、初めて担任をやりたいと思いました。
                 </p>
@@ -219,7 +218,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声5 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   とっても気持ちが前向きになりました。教師の仕事の素晴らしさ、教師にしかできないことがたくさんあることに気がつきました。子どもたちの幸せな未来を描き、教師だからできることを考えなから愛をもって指導に当たりたいと思いました。本当に元気になるご講話をありがとうございました。
                 </p>
@@ -227,7 +226,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声6 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   楽しくてためになるお話をありがとうございました。あいさつや返事は、して当たり前という気持ちで指導していたことに気づきましたあいさつと返事の指導もこんなポイントがあることに気づきました。明日の朝の会で早速、実践します。健康観察の際の「いいよ」と「ファイト」の合図もすぐ取り入れます。会話をつなぐ練習も大人は自然にしているようなことでも子どもにとってはとても難しいことなので、給食の時なども活用していきたいです。子ども達の心をほぐして鍛えられるように、まずは自分の意識を高めていきたいです。
                 </p>
@@ -235,7 +234,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声7 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   子どもが出会ってからのあいさつのタイミングについては、自分もどう指導して良いのか正直わかっていなかったので、実際に先生の実践方法を見せて頂き、とてもスッキリしました。あいさつについてこんな方法をとれば、自然にできるようになりそうです。「慣れて、楽しんで」ということについても、様々な実践例を紹介していただき、私自身も楽しみながら勉強することができました。早速活用させて頂きます。ありがとうございました。
                 </p>
@@ -243,7 +242,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声8 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   よく「できないんですよね～。」と子どものせいにしている先生がいる。それは、教師が手だてをとれず指導をあきらめてしまい、子どものせいにしているのではないかという話を聞いて、どきっとしました。「できないんですよね～。」使っていました。できないなら次の手だてを考えなければならないのに、自分が「手だてをとっていない」ことを自分で言っていたのだなぁと恥ずかしくなりました。子どもができないときはあきらめずに、次の手、次の手と考えて、根気よく取り組むことが必要だと思いました。もう、子どものせいにしません。ありがとうございました。
                 </p>
@@ -251,7 +250,7 @@ export default function TestimonialsPage() {
 
               {/* 参加者の声9 */}
               <div className="relative p-6 bg-white rounded-lg shadow-md mb-6">
-                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">"</div>
+                <div className="text-[#ED765E] text-5xl absolute -top-4 -left-2" aria-hidden="true">&quot;</div>
                 <p className="text-gray-700 mb-4 text-lg leading-relaxed">
                   いつも、資料費程度でなかま研修をやって頂き、ありがとうございます。先生の話を聞くとみんなで頑張ろう！という気持ちになります。だから、学年のメンバーで話を聞きたくなってしまいます。今日は、学年経営のポイントがよくわかりました。今年のチームでみんなで話がきけたので、どこでどんな声をかけ合うのかわかりました。本当に必要なことだなと思いました。学年経営のポイントを「つなぎ合う」にして、最高の学年にします。また、学年全体がお腹から声をだす先生の返事のさせ方や高学年でも全員が張り切って行う先生の音読のさせ方を学びたいので時間をとってください。
                 </p>
