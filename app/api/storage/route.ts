@@ -44,43 +44,43 @@ export async function GET() {
         );
       }
       
-      // ストレージのパブリックポリシーを設定
-      // アップロード権限設定
-      const { error: uploadPolicyError } = await supabase
+      // バケットを公開設定として作成
+      const { data: newBucket, error: createError } = await supabase
         .storage
-        .from('blog-images')
-        .createPolicy('authenticated-uploads', {
-          type: 'upload',
-          match: { role: 'authenticated' },
-          owner: null
+        .createBucket('blog-images', {
+          public: true,
         });
       
-      if (uploadPolicyError) {
-        console.warn('Error setting upload policy:', uploadPolicyError);
+      if (createError) {
+        console.error('Error creating blog-images bucket:', createError);
+        return NextResponse.json(
+          { message: 'ブログ画像用バケットの作成に失敗しました', error: createError.message },
+          { status: 500 }
+        );
       }
       
-      // ダウンロード権限設定（公開）
-      const { error: downloadPolicyError } = await supabase
+      // テスト用のファイルを作成してバケットが機能しているか確認
+      const testFile = new Uint8Array([0, 1, 2, 3, 4]);
+      const { error: uploadError } = await supabase
         .storage
         .from('blog-images')
-        .createPolicy('public-downloads', {
-          type: 'download',
-          match: { role: '*' },
-          owner: null
-        });
+        .upload('test.txt', testFile);
       
-      if (downloadPolicyError) {
-        console.warn('Error setting download policy:', downloadPolicyError);
+      if (uploadError) {
+        console.warn('Error uploading test file:', uploadError);
+      } else {
+        // テストファイルをクリーンアップ
+        await supabase
+          .storage
+          .from('blog-images')
+          .remove(['test.txt']);
       }
       
       return NextResponse.json(
         { 
           message: 'ブログ画像用バケットを作成しました', 
           bucket: newBucket,
-          policies: { 
-            upload: uploadPolicyError ? 'Error' : 'Created', 
-            download: downloadPolicyError ? 'Error' : 'Created' 
-          }
+          testResult: uploadError ? 'Failed' : 'Success'
         },
         { status: 201 }
       );
