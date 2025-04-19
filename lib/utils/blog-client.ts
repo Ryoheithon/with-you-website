@@ -36,7 +36,9 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     return [];
   }
   
-  return data.map(transformBlogPost);
+  // 非同期で変換する
+  const transformedPosts = await Promise.all(data.map(transformBlogPost));
+  return transformedPosts;
 }
 
 /**
@@ -59,7 +61,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
     return null;
   }
   
-  return transformBlogPost(data);
+  return await transformBlogPost(data);
 }
 
 /**
@@ -67,7 +69,7 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
  * @param post Raw blog post from database
  * @returns Transformed BlogPost
  */
-export function transformBlogPost(post: RawBlogPost): BlogPost {
+export async function transformBlogPost(post: RawBlogPost): Promise<BlogPost> {
   // GitHub Flavored Markdown（GFM）を有効化
   marked.use(gfmHeadingId());
   marked.use({
@@ -77,7 +79,7 @@ export function transformBlogPost(post: RawBlogPost): BlogPost {
   });
   
   // Convert markdown content to HTML
-  const contentHtml = marked(post.content || '');
+  const contentHtml = await marked(post.content || '');
   
   return {
     id: post.id,
