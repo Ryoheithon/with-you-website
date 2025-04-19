@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   description: 'With-you ブログ記事の編集',
 };
 
-export default async function EditBlogPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function EditBlogPage(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  props: any
+) {
+  const { params } = props;
   const post = await getBlogPostById(params.id);
   
   if (!post) {
