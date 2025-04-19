@@ -5,12 +5,8 @@ import { notFound } from 'next/navigation';
 import { getBlogPostBySlug, getStaticBlogPosts } from '@/lib/utils/blog-server';
 import { formatDate } from '@/lib/utils/date';
 
-type BlogPageParams = {
-  params: { slug: string }
-};
-
 export async function generateMetadata(
-  { params }: BlogPageParams,
+  { params }: { params: { slug: string } },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _parent: ResolvingMetadata
 ): Promise<Metadata> {
@@ -41,7 +37,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage({ params }: BlogPageParams) {
+export default async function BlogPostPage(
+  { params }: { params: { slug: string } }
+) {
   const post = await getBlogPostBySlug(params.slug);
   
   if (!post) {
