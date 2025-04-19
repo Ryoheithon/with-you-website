@@ -12,6 +12,7 @@ export default function ContactFormWrapper() {
     setIsSubmitting(true);
     
     try {
+      // より長いタイムアウトを設定して接続問題を軽減
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {

@@ -25,8 +25,13 @@ export async function sendContactNotificationEmail(contact: ContactFormValues): 
   }
   
   try {
-    // Create transporter
-    const transporter = nodemailer.createTransport(emailServer);
+    // Create transporter with explicit configuration
+    const transporter = nodemailer.createTransport(emailServer, {
+      // SMTP接続のタイムアウトを長めに設定
+      connectionTimeout: 10000, // 10秒
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
+    });
     
     // Create email content
     const emailContent = `
@@ -79,8 +84,13 @@ export async function sendContactAutoReplyEmail(contact: ContactFormValues): Pro
   }
   
   try {
-    // Create transporter
-    const transporter = nodemailer.createTransport(emailServer);
+    // Create transporter with explicit configuration
+    const transporter = nodemailer.createTransport(emailServer, {
+      // SMTP接続のタイムアウトを長めに設定
+      connectionTimeout: 10000, // 10秒
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
+    });
     
     // Create email content
     const emailContent = `

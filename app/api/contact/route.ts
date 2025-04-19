@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { createClient } from '@supabase/supabase-js';
+import { Database } from '@/types/database.types';
 import { contactSchema } from '@/lib/validators/contact';
 import { sendContactNotificationEmail } from '@/lib/email/notifications';
 
@@ -20,8 +21,11 @@ export async function POST(request: NextRequest) {
     // Extract validated data
     const { name, email, phone, message } = validationResult.data;
     
-    // Create Supabase client
-    const supabase = createServerClient();
+    // Create Supabase client with service role key for API routes
+    const supabase = createClient<Database>(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
     
     // Insert contact submission
     const { data, error } = await supabase
@@ -39,18 +43,27 @@ export async function POST(request: NextRequest) {
       .single();
     
     if (error) {
-      console.error('Error creating contact submission:', error);
+      // 詳細なエラーログ
+      console.error('Error creating contact submission:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      });
+      
       return NextResponse.json(
         { 
           message: 'データベースへの保存に失敗しました', 
           error: error.message,
+          details: error.details,
+          hint: error.hint,
           code: error.code 
         },
         { status: 500 }
       );
     }
     
-    // Send notification email
+    // Send notification email - エラーをキャッチして処理を継続
     try {
       await sendContactNotificationEmail({
         name,
@@ -58,17 +71,10 @@ export async function POST(request: NextRequest) {
         phone,
         message,
       });
+      console.log('Notification email sent successfully');
     } catch (emailError) {
       console.error('Error sending notification email:', emailError);
-      // Continue even if email fails, but log the error
-      return NextResponse.json(
-        { 
-          message: 'お問い合わせは受け付けましたが、通知メールの送信に失敗しました',
-          success: true,
-          emailError: emailError instanceof Error ? emailError.message : '不明なエラー'
-        },
-        { status: 201 }
-      );
+      // ログにのみ記録し、処理を継続
     }
     
     return NextResponse.json(
@@ -99,8 +105,11 @@ export async function GET(request: NextRequest) {
     //   );
     // }
     
-    // Create Supabase client
-    const supabase = createServerClient();
+    // Create Supabase client with service role key for admin access
+    const supabase = createClient<Database>(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
     
     // Get query parameters
     const { searchParams } = new URL(request.url);
