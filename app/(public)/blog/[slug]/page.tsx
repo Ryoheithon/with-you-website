@@ -5,8 +5,8 @@ import { notFound } from 'next/navigation';
 import { getBlogPostBySlug, getStaticBlogPosts } from '@/lib/utils/blog-server';
 import { formatDate } from '@/lib/utils/date';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function generateMetadata(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   props: any,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   parent: ResolvingMetadata
@@ -39,8 +39,10 @@ export async function generateStaticParams() {
   }));
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function BlogPostPage(props: any) {
+export default async function BlogPostPage(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  props: any
+) {
   const { params } = props;
   const post = await getBlogPostBySlug(params.slug);
   
