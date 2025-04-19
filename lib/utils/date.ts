@@ -1,7 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import { ja } from 'date-fns/locale';
 
-export const formatDate = (dateInput: string | Date): string => {
+export const formatDate = (dateInput: string | Date | null): string => {
   // If dateInput is null or undefined, return an empty string
   if (!dateInput) return '';
   
@@ -11,7 +11,7 @@ export const formatDate = (dateInput: string | Date): string => {
   return format(date, 'yyyy年MM月dd日', { locale: ja });
 };
 
-export const formatDateTime = (dateInput: string | Date): string => {
+export const formatDateTime = (dateInput: string | Date | null): string => {
   // If dateInput is null or undefined, return an empty string
   if (!dateInput) return '';
   
