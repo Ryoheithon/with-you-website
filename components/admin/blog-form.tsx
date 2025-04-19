@@ -57,7 +57,6 @@ const BlogForm = ({ post }: BlogFormProps) => {
         marked.use({
           gfm: true,
           breaks: true,
-          mangle: false,
           headerIds: true,
           pedantic: false
         });
