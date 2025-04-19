@@ -17,7 +17,11 @@ export async function generateStaticParams() {
 }
 
 // 動的メタデータの生成
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  props: any
+): Promise<Metadata> {
+  const { params } = props;
   const post = await getBlogPostBySlug(params.slug);
   
   if (!post) {
@@ -40,7 +44,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   });
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  props: any
+) {
+  const { params } = props;
   const post = await getBlogPostBySlug(params.slug);
   
   if (!post) {
